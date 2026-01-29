@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/jdaguilar/tribu-ia-green-agent@sha256:d2be45427928c4d5480d33f217aa20eda3a4066f290139cecda089f191651da2",
+    "code_agent": "ghcr.io/jdaguilar/tribu-ia-purple-agent@sha256:a22360dfcc4a5174d8dc1c90f6d0fbc77fb95a4de5b904b3429340d2cf0af326",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-01-29T21:24:20Z",
+  "github_actions": {
+    "run_url": "https://github.com/jdaguilar/tribu-ia-agentbeats-leadboard/actions/runs/21495196284",
+    "run_logs_url": "https://api.github.com/repos/jdaguilar/tribu-ia-agentbeats-leadboard/actions/runs/21495196284/logs",
+    "ref": "refs/heads/main",
+    "sha": "1142c35ca0cf84a3ec06c7c4811f698ebc6b5a07",
+    "repository_url": "https://github.com/jdaguilar/tribu-ia-agentbeats-leadboard",
+    "workflow_ref": "jdaguilar/tribu-ia-agentbeats-leadboard/.github/workflows/run-scenario.yml@refs/heads/main",
+    "workflow_sha": "1142c35ca0cf84a3ec06c7c4811f698ebc6b5a07"
+  }
+}
