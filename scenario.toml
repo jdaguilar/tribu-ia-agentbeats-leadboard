@@ -1,16 +1,15 @@
 [green_agent]
-agentbeats_id = ""
-env = { API_KEY = "${GITHUB_SECRET_NAME}", LOG_LEVEL = "INFO" }
+agentbeats_id = "REPLACE_WITH_YOUR_GREEN_AGENT_ID"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [[participants]]
-agentbeats_id = ""
-name = "role_1_name"
-env = {}
-
-[[participants]]
-agentbeats_id = ""
-name = "role_2_name"
-env = {}
+agentbeats_id = "REPLACE_WITH_BASELINE_PURPLE_AGENT_ID"
+name = "code_agent"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [config]
-# Add your assessment config here
+category = "code_generation"
+source = "bigcodebench"
+stdlib_only = true
+num_tasks = 5
+# difficulty = "medium"
