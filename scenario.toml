@@ -1,9 +1,9 @@
 [green_agent]
-agentbeats_id = "$GREEN_AGENT_ID"
+agentbeats_id = "019c0ac4-43c7-7930-b81c-49c9616371fe"
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [[participants]]
-agentbeats_id = "$BASELINE_PURPLE_AGENT_ID"
+agentbeats_id = "019c0b79-9cf3-7902-980c-8559db03ae59"
 name = "code_agent"
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
