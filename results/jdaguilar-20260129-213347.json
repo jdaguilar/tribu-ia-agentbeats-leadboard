@@ -1,0 +1,152 @@
+{
+  "participants": {
+    "code_agent": "019c0b79-9cf3-7902-980c-8559db03ae59"
+  },
+  "results": [
+    {
+      "total_tasks": 5,
+      "tasks_passed": 0,
+      "tasks_failed": 5,
+      "average_score": 0.1,
+      "task_results": [
+        {
+          "task_id": "bigcodebench_0",
+          "task_title": "Calculates the average of the sums of absolute differences between each pair ...",
+          "score": 0.1,
+          "passed": false,
+          "generated_code": "",
+          "details": {
+            "tests_passed": 0,
+            "tests_failed": 10,
+            "test_pass_rate": 0.0,
+            "errors": [
+              "test_solution.py::TestCases::test_custom_list FAILED                     [ 10%]",
+              "test_solution.py::TestCases::test_default_numbers FAILED                 [ 20%]",
+              "test_solution.py::TestCases::test_empty_list FAILED                      [ 30%]",
+              "test_solution.py::TestCases::test_identical_elements FAILED              [ 40%]",
+              "test_solution.py::TestCases::test_large_list_with_seed FAILED            [ 50%]",
+              "test_solution.py::TestCases::test_mixed_numbers FAILED                   [ 60%]",
+              "test_solution.py::TestCases::test_negative_numbers FAILED                [ 70%]",
+              "test_solution.py::TestCases::test_random_behavior FAILED                 [ 80%]",
+              "test_solution.py::TestCases::test_single_element FAILED                  [ 90%]",
+              "test_solution.py::TestCases::test_specific_value_with_seed FAILED        [100%]",
+              "FAILED test_solution.py::TestCases::test_custom_list - NameError: name 'task_...",
+              "FAILED test_solution.py::TestCases::test_default_numbers - NameError: name 't...",
+              "FAILED test_solution.py::TestCases::test_empty_list - NameError: name 'task_f...",
+              "FAILED test_solution.py::TestCases::test_identical_elements - NameError: name...",
+              "FAILED test_solution.py::TestCases::test_large_list_with_seed - NameError: na...",
+              "FAILED test_solution.py::TestCases::test_mixed_numbers - NameError: name 'tas...",
+              "FAILED test_solution.py::TestCases::test_negative_numbers - NameError: name '...",
+              "FAILED test_solution.py::TestCases::test_random_behavior - NameError: name 't...",
+              "FAILED test_solution.py::TestCases::test_single_element - NameError: name 'ta...",
+              "FAILED test_solution.py::TestCases::test_specific_value_with_seed - NameError..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpxgrgy_pe\nplugins: anyio-4.12.0\ncollecting ... collected 10 items\n\ntest_solution.py::TestCases::test_custom_list FAILED                     [ 10%]\ntest_solution.py::TestCases::test_default_numbers FAILED                 [ 20%]\ntest_solution.py::TestCases::test_empty_list FAILED                      [ 30%]\ntest_solution.py::TestCases::test_identical_elements FAILED              [ 40%]\ntest_solution.py::TestCases::test_large_list_with_seed FAILED            [ 50%]\ntest_solution.py::TestCases::test_mixed_numbers FAILED                   [ 60%]\ntest_solution.py::TestCases::test_negative_numbers FAILED                [ 70%]\ntest_solution.py::TestCases::test_random_behavior FAILED                 [ 80%]\ntest_solution.py::TestCases::test_single_element FAILED                  [ 90%]\ntest_solution.py::TestCases::test_specific_value_with_seed FAILED        [100%]\n\n=================================== FAILURES ===================================\n__________________________ TestCases.test_custom_list __________________________\ntest_solution.py:17: in test_custom_list\n    result = task_func([1, 2, 3])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n________________________ TestCases.test_default_numbers ________________________\ntest_solution.py:12: in test_default_numbers\n    result = task_func()\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n__________________________ TestCases.test_empty_list ___________________________\ntest_solution.py:32: in test_empty_list\n    result = task_func([])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n______________________ TestCases.test_identical_elements _______________________\ntest_solution.py:37: in test_identical_elements\n    result = task_func([2, 2, 2])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n_____________________ TestCases.test_large_list_with_seed ______________________\ntest_solution.py:53: in test_large_list_with_seed\n    result = task_func(list(range(1, 11)))\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n_________________________ TestCases.test_mixed_numbers _________________________\ntest_solution.py:42: in test_mixed_numbers\n    result = task_func([-10, 10, -5])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n_______________________ TestCases.test_negative_numbers ________________________\ntest_solution.py:22: in test_negative_numbers\n    result = task_func([-3, -2, -1])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n________________________ TestCases.test_random_behavior ________________________\ntest_solution.py:58: in test_random_behavior\n    result1 = task_func([1, 2, 3])\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n________________________ TestCases.test_single_element _________________________\ntest_solution.py:27: in test_single_element\n    result = task_func([5])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n___________________ TestCases.test_specific_value_with_seed ____________________\ntest_solution.py:48: in test_specific_value_with_seed\n    result = task_func([1, 2, 3])\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_custom_list - NameError: name 'task_...\nFAILED test_solution.py::TestCases::test_default_numbers - NameError: name 't...\nFAILED test_solution.py::TestCases::test_empty_list - NameError: name 'task_f...\nFAILED test_solution.py::TestCases::test_identical_elements - NameError: name...\nFAILED test_solution.py::TestCases::test_large_list_with_seed - NameError: na...\nFAILED test_solution.py::TestCases::test_mixed_numbers - NameError: name 'tas...\nFAILED test_solution.py::TestCases::test_negative_numbers - NameError: name '...\nFAILED test_solution.py::TestCases::test_random_behavior - NameError: name 't...\nFAILED test_solution.py::TestCases::test_single_element - NameError: name 'ta...\nFAILED test_solution.py::TestCases::test_specific_value_with_seed - NameError...\n============================== 10 failed in 0.11s ==============================\n"
+          }
+        },
+        {
+          "task_id": "bigcodebench_1",
+          "task_title": "Generate a random string of the specified length composed of uppercase and lo...",
+          "score": 0.1,
+          "passed": false,
+          "generated_code": "",
+          "details": {
+            "tests_passed": 0,
+            "tests_failed": 3,
+            "test_pass_rate": 0.0,
+            "errors": [
+              "test_solution.py::TestCases::test_generated_string_properties FAILED     [ 33%]",
+              "test_solution.py::TestCases::test_negative_length FAILED                 [ 66%]",
+              "test_solution.py::TestCases::test_zero_length FAILED                     [100%]",
+              "FAILED test_solution.py::TestCases::test_generated_string_properties - NameEr...",
+              "FAILED test_solution.py::TestCases::test_negative_length - NameError: name 'r...",
+              "FAILED test_solution.py::TestCases::test_zero_length - NameError: name 'rando..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp_9okcse3\nplugins: anyio-4.12.0\ncollecting ... collected 3 items\n\ntest_solution.py::TestCases::test_generated_string_properties FAILED     [ 33%]\ntest_solution.py::TestCases::test_negative_length FAILED                 [ 66%]\ntest_solution.py::TestCases::test_zero_length FAILED                     [100%]\n\n=================================== FAILURES ===================================\n__________________ TestCases.test_generated_string_properties __________________\ntest_solution.py:11: in setUp\n    random.seed(42)  # Ensuring reproducibility for tests\n    ^^^^^^\nE   NameError: name 'random' is not defined. Did you forget to import 'random'?\n________________________ TestCases.test_negative_length ________________________\ntest_solution.py:11: in setUp\n    random.seed(42)  # Ensuring reproducibility for tests\n    ^^^^^^\nE   NameError: name 'random' is not defined. Did you forget to import 'random'?\n__________________________ TestCases.test_zero_length __________________________\ntest_solution.py:11: in setUp\n    random.seed(42)  # Ensuring reproducibility for tests\n    ^^^^^^\nE   NameError: name 'random' is not defined. Did you forget to import 'random'?\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_generated_string_properties - NameEr...\nFAILED test_solution.py::TestCases::test_negative_length - NameError: name 'r...\nFAILED test_solution.py::TestCases::test_zero_length - NameError: name 'rando...\n============================== 3 failed in 0.07s ===============================\n"
+          }
+        },
+        {
+          "task_id": "bigcodebench_2",
+          "task_title": "Create a dictionary in which keys are random letters and values are lists of ...",
+          "score": 0.1,
+          "passed": false,
+          "generated_code": "",
+          "details": {
+            "tests_passed": 0,
+            "tests_failed": 5,
+            "test_pass_rate": 0.0,
+            "errors": [
+              "test_solution.py::TestCases::test_case_1 FAILED                          [ 20%]",
+              "test_solution.py::TestCases::test_case_2 FAILED                          [ 40%]",
+              "test_solution.py::TestCases::test_case_3 FAILED                          [ 60%]",
+              "test_solution.py::TestCases::test_case_4 FAILED                          [ 80%]",
+              "test_solution.py::TestCases::test_case_5 FAILED                          [100%]",
+              "FAILED test_solution.py::TestCases::test_case_1 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_2 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_3 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_4 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_5 - NameError: name 'task_func'..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp8hgxnkkw\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_1 FAILED                          [ 20%]\ntest_solution.py::TestCases::test_case_2 FAILED                          [ 40%]\ntest_solution.py::TestCases::test_case_3 FAILED                          [ 60%]\ntest_solution.py::TestCases::test_case_4 FAILED                          [ 80%]\ntest_solution.py::TestCases::test_case_5 FAILED                          [100%]\n\n=================================== FAILURES ===================================\n____________________________ TestCases.test_case_1 _____________________________\ntest_solution.py:11: in setUp\n    self.sorted_dict = task_func(self.letters)\n                       ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_2 _____________________________\ntest_solution.py:11: in setUp\n    self.sorted_dict = task_func(self.letters)\n                       ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_3 _____________________________\ntest_solution.py:11: in setUp\n    self.sorted_dict = task_func(self.letters)\n                       ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_4 _____________________________\ntest_solution.py:11: in setUp\n    self.sorted_dict = task_func(self.letters)\n                       ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_5 _____________________________\ntest_solution.py:11: in setUp\n    self.sorted_dict = task_func(self.letters)\n                       ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_case_1 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_2 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_3 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_4 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_5 - NameError: name 'task_func'...\n============================== 5 failed in 0.07s ===============================\n"
+          }
+        },
+        {
+          "task_id": "bigcodebench_4",
+          "task_title": "Count the occurrence of each integer in the values of the input dictionary, w...",
+          "score": 0.1,
+          "passed": false,
+          "generated_code": "",
+          "details": {
+            "tests_passed": 0,
+            "tests_failed": 8,
+            "test_pass_rate": 0.0,
+            "errors": [
+              "test_solution.py::TestCases::test_case_1 FAILED                          [ 12%]",
+              "test_solution.py::TestCases::test_case_2 FAILED                          [ 25%]",
+              "test_solution.py::TestCases::test_case_3 FAILED                          [ 37%]",
+              "test_solution.py::TestCases::test_case_4 FAILED                          [ 50%]",
+              "test_solution.py::TestCases::test_case_5 FAILED                          [ 62%]",
+              "test_solution.py::TestCases::test_case_6 FAILED                          [ 75%]",
+              "test_solution.py::TestCases::test_case_7 FAILED                          [ 87%]",
+              "test_solution.py::TestCases::test_case_8 FAILED                          [100%]",
+              "FAILED test_solution.py::TestCases::test_case_1 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_2 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_3 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_4 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_5 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_6 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_7 - NameError: name 'task_func'...",
+              "FAILED test_solution.py::TestCases::test_case_8 - NameError: name 'task_func'..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpt67h01ow\nplugins: anyio-4.12.0\ncollecting ... collected 8 items\n\ntest_solution.py::TestCases::test_case_1 FAILED                          [ 12%]\ntest_solution.py::TestCases::test_case_2 FAILED                          [ 25%]\ntest_solution.py::TestCases::test_case_3 FAILED                          [ 37%]\ntest_solution.py::TestCases::test_case_4 FAILED                          [ 50%]\ntest_solution.py::TestCases::test_case_5 FAILED                          [ 62%]\ntest_solution.py::TestCases::test_case_6 FAILED                          [ 75%]\ntest_solution.py::TestCases::test_case_7 FAILED                          [ 87%]\ntest_solution.py::TestCases::test_case_8 FAILED                          [100%]\n\n=================================== FAILURES ===================================\n____________________________ TestCases.test_case_1 _____________________________\ntest_solution.py:11: in test_case_1\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_2 _____________________________\ntest_solution.py:16: in test_case_2\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_3 _____________________________\ntest_solution.py:22: in test_case_3\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_4 _____________________________\ntest_solution.py:28: in test_case_4\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_5 _____________________________\ntest_solution.py:34: in test_case_5\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_6 _____________________________\ntest_solution.py:39: in test_case_6\n    task_func(input_dict)\n    ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_7 _____________________________\ntest_solution.py:44: in test_case_7\n    result = task_func(input_dict)\n             ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n____________________________ TestCases.test_case_8 _____________________________\ntest_solution.py:50: in test_case_8\n    self.assertEqual(task_func(input_dict), expected_output)\n                     ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_case_1 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_2 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_3 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_4 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_5 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_6 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_7 - NameError: name 'task_func'...\nFAILED test_solution.py::TestCases::test_case_8 - NameError: name 'task_func'...\n============================== 8 failed in 0.08s ===============================\n"
+          }
+        },
+        {
+          "task_id": "bigcodebench_5",
+          "task_title": "Create a dictionary where keys are letters from a predefined list LETTERS and...",
+          "score": 0.1,
+          "passed": false,
+          "generated_code": "",
+          "details": {
+            "tests_passed": 0,
+            "tests_failed": 5,
+            "test_pass_rate": 0.0,
+            "errors": [
+              "test_solution.py::TestCases::test_custom_letters FAILED                  [ 20%]",
+              "test_solution.py::TestCases::test_default_letters FAILED                 [ 40%]",
+              "test_solution.py::TestCases::test_empty_letters FAILED                   [ 60%]",
+              "test_solution.py::TestCases::test_known_values FAILED                    [ 80%]",
+              "test_solution.py::TestCases::test_uniform_values FAILED                  [100%]",
+              "FAILED test_solution.py::TestCases::test_custom_letters - NameError: name 'ta...",
+              "FAILED test_solution.py::TestCases::test_default_letters - NameError: name 't...",
+              "FAILED test_solution.py::TestCases::test_empty_letters - NameError: name 'tas...",
+              "FAILED test_solution.py::TestCases::test_known_values - NameError: name 'task...",
+              "FAILED test_solution.py::TestCases::test_uniform_values - NameError: name 'ta..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp51jo79xk\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_custom_letters FAILED                  [ 20%]\ntest_solution.py::TestCases::test_default_letters FAILED                 [ 40%]\ntest_solution.py::TestCases::test_empty_letters FAILED                   [ 60%]\ntest_solution.py::TestCases::test_known_values FAILED                    [ 80%]\ntest_solution.py::TestCases::test_uniform_values FAILED                  [100%]\n\n=================================== FAILURES ===================================\n________________________ TestCases.test_custom_letters _________________________\ntest_solution.py:22: in test_custom_letters\n    sd_dict = task_func(custom_letters)\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n________________________ TestCases.test_default_letters ________________________\ntest_solution.py:15: in test_default_letters\n    sd_dict = task_func()\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n_________________________ TestCases.test_empty_letters _________________________\ntest_solution.py:37: in test_empty_letters\n    sd_dict = task_func([])\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n_________________________ TestCases.test_known_values __________________________\ntest_solution.py:44: in test_known_values\n    sd_dict = task_func(letters)\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n________________________ TestCases.test_uniform_values _________________________\ntest_solution.py:32: in test_uniform_values\n    sd_dict = task_func(letters)\n              ^^^^^^^^^\nE   NameError: name 'task_func' is not defined\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_custom_letters - NameError: name 'ta...\nFAILED test_solution.py::TestCases::test_default_letters - NameError: name 't...\nFAILED test_solution.py::TestCases::test_empty_letters - NameError: name 'tas...\nFAILED test_solution.py::TestCases::test_known_values - NameError: name 'task...\nFAILED test_solution.py::TestCases::test_uniform_values - NameError: name 'ta...\n============================== 5 failed in 0.10s ===============================\n"
+          }
+        }
+      ]
+    }
+  ]
+}
