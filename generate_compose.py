@@ -137,8 +137,33 @@ def resolve_image(agent: dict, name: str) -> None:
         sys.exit(1)
 
 
+def expand_env_vars(content: str) -> str:
+    """Expand environment variables in ${VAR} or $VAR format."""
+
+    def replace_match(match):
+        var_name = match.group(1) or match.group(2)
+        return os.environ.get(var_name, match.group(0))
+
+    pattern = re.compile(r'\$\{([^}]+)\}|\$([a-zA-Z_][a-zA-Z0-9_]*)')
+    return pattern.sub(replace_match, content)
+
+
+def load_env_file(env_path: Path = Path(".env")):
+    """Load variables from .env file into os.environ if it exists."""
+    if env_path.exists():
+        for line in env_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" in line:
+                key, value = line.split("=", 1)
+                os.environ[key.strip()] = value.strip()
+
+
 def parse_scenario(scenario_path: Path) -> dict[str, Any]:
+    load_env_file()
     toml_data = scenario_path.read_text()
+    toml_data = expand_env_vars(toml_data)
     data = tomli.loads(toml_data)
 
     green = data.get("green_agent", {})
@@ -171,7 +196,7 @@ def format_depends_on(services: list) -> str:
     lines = []
     for service in services:
         lines.append(f"      {service}:")
-        lines.append(f"        condition: service_healthy")
+        lines.append("        condition: service_healthy")
     return "\n" + "\n".join(lines)
 
 
@@ -204,13 +229,12 @@ def generate_docker_compose(scenario: dict[str, Any]) -> str:
 
 
 def generate_a2a_scenario(scenario: dict[str, Any]) -> str:
-    green = scenario["green_agent"]
     participants = scenario.get("participants", [])
 
     participant_lines = []
     for p in participants:
         lines = [
-            f"[[participants]]",
+            "[[participants]]",
             f"role = \"{p['name']}\"",
             f"endpoint = \"http://{p['name']}:{DEFAULT_PORT}\"",
         ]
