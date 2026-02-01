@@ -1,0 +1,332 @@
+{
+  "participants": {
+    "code_agent": "019c0b79-9cf3-7902-980c-8559db03ae59"
+  },
+  "results": [
+    {
+      "total_tasks": 20,
+      "tasks_passed": 17,
+      "tasks_failed": 3,
+      "average_score": 0.9436666666666668,
+      "task_results": [
+        {
+          "task_id": "bigcodebench_0",
+          "task_title": "Calculates the average of the sums of absolute differences between each pair ...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import itertools\nfrom random import shuffle\n\ndef task_func(numbers=list(range(1, 3))):\n    permutations = list(itertools.permutations(numbers))\n    total_sum = 0\n    for perm in permutations:\n        perm = list(perm)\n        shuffle(perm)\n        sum_diff = sum(abs(perm[i] - perm[i+1]) for i in range(len(perm) - 1))\n        total_sum += sum_diff\n    return total_sum / len(permutations)",
+          "details": {
+            "tests_passed": 10,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp_bk_0i9c\nplugins: anyio-4.12.0\ncollecting ... collected 10 items\n\ntest_solution.py::TestCases::test_custom_list PASSED                     [ 10%]\ntest_solution.py::TestCases::test_default_numbers PASSED                 [ 20%]\ntest_solution.py::TestCases::test_empty_list PASSED                      [ 30%]\ntest_solution.py::TestCases::test_identical_elements PASSED              [ 40%]\ntest_solution.py::TestCases::test_large_list_with_seed PASSED            [ 50%]\ntest_solution.py::TestCases::test_mixed_numbers PASSED                   [ 60%]\ntest_solution.py::TestCases::test_negative_numbers PASSED                [ 70%]\ntest_solution.py::TestCases::test_random_behavior PASSED                 [ 80%]\ntest_solution.py::TestCases::test_single_element PASSED                  [ 90%]\ntest_solution.py::TestCases::test_specific_value_with_seed PASSED        [100%]\n\n============================= 10 passed in 15.41s ==============================\n"
+          },
+          "agent_execution_time_seconds": 1.8546409606933594
+        },
+        {
+          "task_id": "bigcodebench_1",
+          "task_title": "Generate a random string of the specified length composed of uppercase and lo...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import collections\nimport random\nimport string\n\ndef task_func(length=100):\n    if length < 0:\n        raise ValueError(\"Length must be a non-negative integer\")\n    random_string = ''.join(random.choices(string.ascii_letters, k=length))\n    return dict(collections.Counter(random_string))",
+          "details": {
+            "tests_passed": 3,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpdga_4l19\nplugins: anyio-4.12.0\ncollecting ... collected 3 items\n\ntest_solution.py::TestCases::test_generated_string_properties \ntest_solution.py::TestCases::test_generated_string_properties PASSED     [ 33%]\ntest_solution.py::TestCases::test_negative_length PASSED                 [ 66%]\ntest_solution.py::TestCases::test_zero_length PASSED                     [100%]\n\n===================== 3 passed, 5 subtests passed in 0.05s =====================\n"
+          },
+          "agent_execution_time_seconds": 1.0679681301116943
+        },
+        {
+          "task_id": "bigcodebench_2",
+          "task_title": "Create a dictionary in which keys are random letters and values are lists of ...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import random\nimport statistics\n\ndef task_func(LETTERS):\n    random_dict = {letter: [random.randint(1, 100) for _ in range(random.randint(5, 10))] for letter in LETTERS}\n    sorted_dict = dict(sorted(random_dict.items(), key=lambda item: statistics.mean(item[1]), reverse=True))\n    return sorted_dict",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp0o41_84_\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 20%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 40%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 60%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 80%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [100%]\n\n============================== 5 passed in 0.06s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.6906211376190186
+        },
+        {
+          "task_id": "bigcodebench_4",
+          "task_title": "Count the occurrence of each integer in the values of the input dictionary, w...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "from collections import Counter\nimport itertools\n\ndef task_func(d):\n    all_values = itertools.chain.from_iterable(d.values())\n    return dict(Counter(all_values))",
+          "details": {
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmprcmp1ovu\nplugins: anyio-4.12.0\ncollecting ... collected 8 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 12%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 25%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 37%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 50%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [ 62%]\ntest_solution.py::TestCases::test_case_6 PASSED                          [ 75%]\ntest_solution.py::TestCases::test_case_7 PASSED                          [ 87%]\ntest_solution.py::TestCases::test_case_8 PASSED                          [100%]\n\n============================== 8 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.7570915222167969
+        },
+        {
+          "task_id": "bigcodebench_5",
+          "task_title": "Create a dictionary where keys are letters from a predefined list LETTERS and...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import random\nimport math\n\ndef task_func(LETTERS=[chr(i) for i in range(97, 123)]):\n    def population_std_dev(numbers):\n        if len(numbers) == 0:\n            return 0.0\n        mean = sum(numbers) / len(numbers)\n        variance = sum((x - mean) ** 2 for x in numbers) / len(numbers)\n        return math.sqrt(variance)\n    \n    random.seed(42)\n    result = {}\n    for letter in LETTERS:\n        num_list = [random.randint(0, 100) for _ in range(random.randint(1, 10))]\n        result[letter] = population_std_dev(num_list)\n    \n    return result",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp6u0d6n0y\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_custom_letters PASSED                  [ 20%]\ntest_solution.py::TestCases::test_default_letters PASSED                 [ 40%]\ntest_solution.py::TestCases::test_empty_letters PASSED                   [ 60%]\ntest_solution.py::TestCases::test_known_values PASSED                    [ 80%]\ntest_solution.py::TestCases::test_uniform_values PASSED                  [100%]\n\n============================== 5 passed in 0.07s ===============================\n"
+          },
+          "agent_execution_time_seconds": 1.486664056777954
+        },
+        {
+          "task_id": "bigcodebench_6",
+          "task_title": "Find the latest log file in a specified directory that matches a given regex ...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import os\nimport re\n\ndef task_func(pattern, log_dir='/var/log/'):\n    latest_file = None\n    latest_mtime = None\n    compiled_pattern = re.compile(pattern)\n    \n    try:\n        for filename in os.listdir(log_dir):\n            if compiled_pattern.match(filename):\n                file_path = os.path.join(log_dir, filename)\n                mtime = os.path.getmtime(file_path)\n                if latest_mtime is None or mtime > latest_mtime:\n                    latest_mtime = mtime\n                    latest_file = file_path\n    except FileNotFoundError:\n        return None\n    \n    return latest_file",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpz0c08w6t\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 20%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 40%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 60%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 80%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [100%]\n\n============================== 5 passed in 0.07s ===============================\n"
+          },
+          "agent_execution_time_seconds": 1.2145295143127441
+        },
+        {
+          "task_id": "bigcodebench_7",
+          "task_title": "Find the best-selling product from a given CSV file with sales data",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import csv\nimport collections\nimport operator\n\ndef task_func(csv_file_path):\n    product_sales = collections.defaultdict(int)\n    \n    with open(csv_file_path, mode='r', newline='') as csvfile:\n        reader = csv.DictReader(csvfile)\n        for row in reader:\n            product = row['product']\n            quantity = int(row['quantity'])\n            product_sales[product] += quantity\n    \n    best_selling_product = max(product_sales.items(), key=operator.itemgetter(1))[0]\n    return best_selling_product",
+          "details": {
+            "tests_passed": 7,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpapm_a00f\nplugins: anyio-4.12.0\ncollecting ... collected 7 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 14%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 28%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 42%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 57%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [ 71%]\ntest_solution.py::TestCases::test_case_6 PASSED                          [ 85%]\ntest_solution.py::TestCases::test_case_7 PASSED                          [100%]\n\n============================== 7 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 1.343024492263794
+        },
+        {
+          "task_id": "bigcodebench_8",
+          "task_title": "Convert elements in 'T1' to integers and create a list of random integers whe...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "from collections import Counter\nfrom random import randint\n\ndef task_func(T1, RANGE=100):\n    total_sum = sum(int(num) for sublist in T1 for num in sublist)\n    random_numbers = [randint(0, RANGE) for _ in range(total_sum)]\n    return Counter(random_numbers)",
+          "details": {
+            "tests_passed": 7,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpnzk3cmur\nplugins: anyio-4.12.0\ncollecting ... collected 7 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 14%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 28%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 42%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 57%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [ 71%]\ntest_solution.py::TestCases::test_empty_input PASSED                     [ 85%]\ntest_solution.py::TestCases::test_range_limit PASSED                     [100%]\n\n============================== 7 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.9042682647705078
+        },
+        {
+          "task_id": "bigcodebench_12",
+          "task_title": "Runs the provided backup shell script and logs the start time, end time, and ...",
+          "score": 0.3666666666666667,
+          "passed": false,
+          "generated_code": "import subprocess\nimport os\nimport json\nfrom datetime import datetime\n\ndef task_func(script_name='backup.sh', log_file='/home/user/backup_log.json'):\n    if not os.path.isfile(script_name):\n        raise FileNotFoundError(f\"The script {script_name} does not exist.\")\n    \n    start_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n    \n    try:\n        result = subprocess.run(['bash', script_name], capture_output=True, text=True)\n        exit_status = result.returncode\n    except Exception as e:\n        raise RuntimeError(f\"Error executing the script: {e}\")\n    \n    end_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n    \n    log_data = {\n        'start_time': start_time,\n        'end_time': end_time,\n        'exit_status': exit_status\n    }\n    \n    with open(log_file, 'w') as f:\n        json.dump(log_data, f)\n    \n    return log_data",
+          "details": {
+            "tests_passed": 2,
+            "tests_failed": 4,
+            "test_pass_rate": 0.3333333333333333,
+            "errors": [
+              "test_solution.py::TestCases::test_custom_values_successful_script FAILED [ 16%]",
+              "test_solution.py::TestCases::test_default_values_successful_script FAILED [ 33%]",
+              "test_solution.py::TestCases::test_non_zero_exit_status FAILED            [ 66%]",
+              "test_solution.py::TestCases::test_script_execution_failure FAILED        [100%]",
+              "FAILED test_solution.py::TestCases::test_custom_values_successful_script - As...",
+              "FAILED test_solution.py::TestCases::test_default_values_successful_script - A...",
+              "FAILED test_solution.py::TestCases::test_non_zero_exit_status - AssertionErro...",
+              "FAILED test_solution.py::TestCases::test_script_execution_failure - FileNotFo..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpfwx2hnm6\nplugins: anyio-4.12.0\ncollecting ... collected 6 items\n\ntest_solution.py::TestCases::test_custom_values_successful_script FAILED [ 16%]\ntest_solution.py::TestCases::test_default_values_successful_script FAILED [ 33%]\ntest_solution.py::TestCases::test_log_data_format PASSED                 [ 50%]\ntest_solution.py::TestCases::test_non_zero_exit_status FAILED            [ 66%]\ntest_solution.py::TestCases::test_script_does_not_exist PASSED           [ 83%]\ntest_solution.py::TestCases::test_script_execution_failure FAILED        [100%]\n\n=================================== FAILURES ===================================\n________________ TestCases.test_custom_values_successful_script ________________\ntest_solution.py:49: in test_custom_values_successful_script\n    self.assertEqual(result['exit_status'], 0)\nE   AssertionError: 127 != 0\n_______________ TestCases.test_default_values_successful_script ________________\ntest_solution.py:27: in test_default_values_successful_script\n    self.assertEqual(result['exit_status'], 0)\nE   AssertionError: 127 != 0\n_____________________ TestCases.test_non_zero_exit_status ______________________\ntest_solution.py:64: in test_non_zero_exit_status\n    self.assertEqual(result['exit_status'], 1)\nE   AssertionError: 127 != 1\n___________________ TestCases.test_script_execution_failure ____________________\ntest_solution.py:38: in test_script_execution_failure\n    task_func()\nsolution.py:26: in task_func\n    with open(log_file, 'w') as f:\n         ^^^^^^^^^^^^^^^^^^^\nE   FileNotFoundError: [Errno 2] No such file or directory: '/home/user/backup_log.json'\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_custom_values_successful_script - As...\nFAILED test_solution.py::TestCases::test_default_values_successful_script - A...\nFAILED test_solution.py::TestCases::test_non_zero_exit_status - AssertionErro...\nFAILED test_solution.py::TestCases::test_script_execution_failure - FileNotFo...\n========================= 4 failed, 2 passed in 0.11s ==========================\n"
+          },
+          "agent_execution_time_seconds": 1.242305040359497
+        },
+        {
+          "task_id": "bigcodebench_13",
+          "task_title": "Download all files from a specific directory on an FTP server using wget in a...",
+          "score": 0.74,
+          "passed": false,
+          "generated_code": "import subprocess\nimport ftplib\nimport os\n\ndef task_func(ftp_server='ftp.dlptest.com', ftp_user='dlpuser', ftp_password='rNrKYTX9g7z3RgJRmxWuGHbeu', ftp_dir='/ftp/test'):\n    try:\n        ftp = ftplib.FTP(ftp_server)\n    except Exception as e:\n        raise Exception(f\"Failed to connect to FTP server {ftp_server}: {str(e)}\")\n    \n    try:\n        ftp.login(user=ftp_user, passwd=ftp_password)\n    except Exception as e:\n        ftp.quit()\n        raise Exception(f\"Failed to log into FTP server {ftp_server} with user {ftp_user}: {str(e)}\")\n    \n    try:\n        ftp.cwd(ftp_dir)\n    except Exception as e:\n        ftp.quit()\n        raise Exception(f\"Failed to change to directory {ftp_dir} on server {ftp_server}: {str(e)}\")\n    \n    filenames = ftp.nlst()\n    ftp.quit()\n    \n    for filename in filenames:\n        url = f\"ftp://{ftp_user}:{ftp_password}@{ftp_server}{ftp_dir}/{filename}\"\n        subprocess.run(['wget', url], check=True)\n    \n    return filenames",
+          "details": {
+            "tests_passed": 4,
+            "tests_failed": 1,
+            "test_pass_rate": 0.8,
+            "errors": [
+              "test_solution.py::TestCases::test_case_1 FAILED                          [ 20%]",
+              "FAILED test_solution.py::TestCases::test_case_1 - subprocess.CalledProcessErr..."
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpu60div9w\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_1 FAILED                          [ 20%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 40%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 60%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 80%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [100%]\n\n=================================== FAILURES ===================================\n____________________________ TestCases.test_case_1 _____________________________\ntest_solution.py:35: in test_case_1\n    downloaded_files = task_func()\n                       ^^^^^^^^^^^\nsolution.py:28: in task_func\n    subprocess.run(['wget', url], check=True)\n/usr/local/lib/python3.13/subprocess.py:577: in run\n    raise CalledProcessError(retcode, process.args,\nE   subprocess.CalledProcessError: Command '['wget', 'ftp://dlpuser:rNrKYTX9g7z3RgJRmxWuGHbeu@ftp.dlptest.com/ftp/test/file1.txt']' returned non-zero exit status 8.\n----------------------------- Captured stderr call -----------------------------\n--2026-02-01 01:18:21--  ftp://dlpuser:*password*@ftp.dlptest.com/ftp/test/file1.txt\n           => \u2018file1.txt\u2019\nResolving ftp.dlptest.com (ftp.dlptest.com)... 44.241.66.173\nConnecting to ftp.dlptest.com (ftp.dlptest.com)|44.241.66.173|:21... connected.\nLogging in as dlpuser ... Logged in!\n==> SYST ... done.    ==> PWD ... done.\n==> TYPE I ... done.  ==> CWD (1) /ftp/test ... \nNo such directory \u2018ftp/test\u2019.\n\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_case_1 - subprocess.CalledProcessErr...\n========================= 1 failed, 4 passed in 0.63s ==========================\n"
+          },
+          "agent_execution_time_seconds": 2.2319068908691406
+        },
+        {
+          "task_id": "bigcodebench_14",
+          "task_title": "Archive a specified project directory into a ZIP file based on the configurat...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import configparser\nimport os\nimport shutil\n\ndef task_func(config_file_path, archieve_dir='/home/user/archive'):\n    if not os.path.exists(config_file_path):\n        raise FileNotFoundError(f\"Configuration file {config_file_path} does not exist.\")\n    \n    config = configparser.ConfigParser()\n    config.read(config_file_path)\n    \n    if 'Project' not in config or 'directory' not in config['Project']:\n        raise Exception(\"Configuration file is missing 'Project' section or 'directory' key.\")\n    \n    project_dir = config['Project']['directory']\n    \n    if not os.path.exists(project_dir):\n        raise FileNotFoundError(f\"Project directory {project_dir} does not exist.\")\n    \n    if not os.path.exists(archieve_dir):\n        os.makedirs(archieve_dir)\n    \n    project_basename = os.path.basename(os.path.normpath(project_dir))\n    zip_file_path = os.path.join(archieve_dir, project_basename)\n    \n    try:\n        shutil.make_archive(zip_file_path, 'zip', project_dir)\n    except Exception as e:\n        raise Exception(f\"Failed to create ZIP archive: {e}\")\n    \n    return True",
+          "details": {
+            "tests_passed": 4,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp6ldwp4e_\nplugins: anyio-4.12.0\ncollecting ... collected 4 items\n\ntest_solution.py::TestCases::test_archive_content PASSED                 [ 25%]\ntest_solution.py::TestCases::test_archive_creation PASSED                [ 50%]\ntest_solution.py::TestCases::test_invalid_project_directory PASSED       [ 75%]\ntest_solution.py::TestCases::test_valid_project_directory PASSED         [100%]\n\n============================== 4 passed in 0.06s ===============================\n"
+          },
+          "agent_execution_time_seconds": 2.665724754333496
+        },
+        {
+          "task_id": "bigcodebench_15",
+          "task_title": "Execute a list of shell commands read from a CSV file and save the outputs in...",
+          "score": 0.7666666666666667,
+          "passed": false,
+          "generated_code": "import subprocess\nimport csv\nimport os\n\ndef task_func(commands_file_path, output_dir_path):\n    if not os.path.exists(commands_file_path):\n        raise FileNotFoundError(f\"The file {commands_file_path} does not exist.\")\n    \n    if not os.path.exists(output_dir_path):\n        os.makedirs(output_dir_path)\n    \n    output_files = []\n    \n    with open(commands_file_path, newline='') as csvfile:\n        reader = csv.reader(csvfile)\n        for index, row in enumerate(reader):\n            if not row:\n                continue\n            command = row[0]\n            output_file_path = os.path.join(output_dir_path, f'command_{index}_output.txt')\n            try:\n                result = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)\n                with open(output_file_path, 'w') as output_file:\n                    output_file.write(result.stdout)\n            except subprocess.CalledProcessError as e:\n                with open(output_file_path, 'w') as output_file:\n                    output_file.write(f\"Error: {e.stderr}\\nExit Code: {e.returncode}\")\n            output_files.append(output_file_path)\n    \n    return output_files",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 1,
+            "test_pass_rate": 0.8333333333333334,
+            "errors": [
+              "test_solution.py::TestCases::test_command_failure_with_specific_exit_code FAILED [ 16%]",
+              "FAILED test_solution.py::TestCases::test_command_failure_with_specific_exit_code"
+            ],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpvcl9szij\nplugins: anyio-4.12.0\ncollecting ... collected 6 items\n\ntest_solution.py::TestCases::test_command_failure_with_specific_exit_code FAILED [ 16%]\ntest_solution.py::TestCases::test_empty_csv_file PASSED                  [ 33%]\ntest_solution.py::TestCases::test_file_not_found PASSED                  [ 50%]\ntest_solution.py::TestCases::test_invalid_command PASSED                 [ 66%]\ntest_solution.py::TestCases::test_mixed_commands PASSED                  [ 83%]\ntest_solution.py::TestCases::test_successful_command_execution PASSED    [100%]\n\n=================================== FAILURES ===================================\n____________ TestCases.test_command_failure_with_specific_exit_code ____________\ntest_solution.py:88: in test_command_failure_with_specific_exit_code\n    self.assertIn(\"Error executing command\", content)\nE   AssertionError: 'Error executing command' not found in 'Error: \\nExit Code: 1'\n=========================== short test summary info ============================\nFAILED test_solution.py::TestCases::test_command_failure_with_specific_exit_code\n========================= 1 failed, 5 passed in 0.08s ==========================\n"
+          },
+          "agent_execution_time_seconds": 2.244431972503662
+        },
+        {
+          "task_id": "bigcodebench_16",
+          "task_title": "Backup all '",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import os\nimport glob\nimport tarfile\n\ndef task_func(directory, backup_dir='/path/to/backup'):\n    if not os.path.exists(directory):\n        raise FileNotFoundError(f\"The specified directory {directory} does not exist.\")\n    \n    log_files = glob.glob(os.path.join(directory, '*.log'))\n    \n    if not log_files:\n        return 'No logs found to backup'\n    \n    if not os.path.exists(backup_dir):\n        os.makedirs(backup_dir)\n    \n    backup_file_path = os.path.join(backup_dir, 'logs_backup.tar.gz')\n    \n    with tarfile.open(backup_file_path, 'w:gz') as tar:\n        for log_file in log_files:\n            tar.add(log_file, arcname=os.path.basename(log_file))\n            os.remove(log_file)\n    \n    return backup_file_path",
+          "details": {
+            "tests_passed": 4,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpa97ddbf0\nplugins: anyio-4.12.0\ncollecting ... collected 4 items\n\ntest_solution.py::TestCases::test_backup_creation_and_log_file_deletion PASSED [ 25%]\ntest_solution.py::TestCases::test_handle_non_existing_directory PASSED   [ 50%]\ntest_solution.py::TestCases::test_no_log_files_to_backup PASSED          [ 75%]\ntest_solution.py::TestCases::test_non_log_files_remain PASSED            [100%]\n\n============================== 4 passed in 0.08s ===============================\n"
+          },
+          "agent_execution_time_seconds": 1.5436725616455078
+        },
+        {
+          "task_id": "bigcodebench_18",
+          "task_title": "Divide a CSV file into several smaller files and shuffle the lines in each file",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import subprocess\nimport csv\nimport glob\nimport random\nimport os\n\ndef task_func(file):\n    if not os.path.isfile(file) or not file.endswith('.csv'):\n        return []\n\n    try:\n        # Split the file into smaller files with a prefix 'split_'\n        subprocess.run(['split', '-l', '100', file, 'split_'], check=True)\n\n        # Get the list of split files\n        split_files = glob.glob('split_*')\n\n        # Shuffle the lines in each split file\n        for split_file in split_files:\n            with open(split_file, 'r') as f:\n                lines = f.readlines()\n            \n            header = lines[0]\n            data_lines = lines[1:]\n            random.shuffle(data_lines)\n\n            with open(split_file, 'w') as f:\n                f.write(header)\n                f.writelines(data_lines)\n\n        return split_files\n\n    except Exception as e:\n        return []",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp78fudffa\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_invalid_file PASSED                    [ 20%]\ntest_solution.py::TestCases::test_large_csv PASSED                       [ 40%]\ntest_solution.py::TestCases::test_medium_csv PASSED                      [ 60%]\ntest_solution.py::TestCases::test_non_csv_file PASSED                    [ 80%]\ntest_solution.py::TestCases::test_small_csv PASSED                       [100%]\n\n============================== 5 passed in 0.07s ===============================\n"
+          },
+          "agent_execution_time_seconds": 2.109020948410034
+        },
+        {
+          "task_id": "bigcodebench_19",
+          "task_title": "Zips all files (not including subdirectories) located in the specified direct...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import os\nimport glob\nimport zipfile\n\ndef task_func(directory):\n    if not os.path.exists(directory):\n        raise FileNotFoundError(f\"The directory {directory} does not exist.\")\n    \n    files = glob.glob(os.path.join(directory, '*'))\n    files = [f for f in files if os.path.isfile(f)]\n    \n    if not files:\n        return None\n    \n    zip_path = os.path.join(directory, 'files.zip')\n    with zipfile.ZipFile(zip_path, 'w') as zipf:\n        for file in files:\n            zipf.write(file, os.path.basename(file))\n    \n    return zip_path",
+          "details": {
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpz8akaxbj\nplugins: anyio-4.12.0\ncollecting ... collected 6 items\n\ntest_solution.py::TestCases::test_empty_directory PASSED                 [ 16%]\ntest_solution.py::TestCases::test_exclusion_of_subdirectories PASSED     [ 33%]\ntest_solution.py::TestCases::test_file_integrity_in_zip PASSED           [ 50%]\ntest_solution.py::TestCases::test_multiple_files_zip PASSED              [ 66%]\ntest_solution.py::TestCases::test_non_existent_directory PASSED          [ 83%]\ntest_solution.py::TestCases::test_single_file_zip PASSED                 [100%]\n\n============================== 6 passed in 0.06s ===============================\n"
+          },
+          "agent_execution_time_seconds": 6.586272716522217
+        },
+        {
+          "task_id": "bigcodebench_22",
+          "task_title": "Combine two lists by alternating their elements, even if they are of differen...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import collections\nfrom itertools import zip_longest\nfrom random import choices\n\ndef task_func(l1, l2, K=10):\n    combined = [x for pair in zip_longest(l1, l2) for x in pair if x is not None]\n    sample = choices(combined, k=K)\n    return collections.Counter(sample)",
+          "details": {
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp_12balla\nplugins: anyio-4.12.0\ncollecting ... collected 8 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 12%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 25%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 37%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 50%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [ 62%]\ntest_solution.py::TestCases::test_case_with_non_integers PASSED          [ 75%]\ntest_solution.py::TestCases::test_empty_first_list PASSED                [ 87%]\ntest_solution.py::TestCases::test_imbalanced_lists PASSED                [100%]\n\n============================== 8 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.8064351081848145
+        },
+        {
+          "task_id": "bigcodebench_24",
+          "task_title": "Hashes a password using the PBKDF2 HMAC algorithm with SHA-256 as the hashing...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import base64\nimport hashlib\nimport os\n\ndef task_func(password, SALT_LENGTH = 32):\n    if not password:\n        raise ValueError(\"Password cannot be None or empty\")\n    \n    salt = os.urandom(SALT_LENGTH)\n    hashed_password = hashlib.pbkdf2_hmac(\n        'sha256',\n        password.encode('utf-8'),\n        salt,\n        100000\n    )\n    \n    encoded_salt = base64.b64encode(salt)\n    encoded_hashed_password = base64.b64encode(hashed_password)\n    \n    return (encoded_salt, encoded_hashed_password)",
+          "details": {
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmpixfhzn6w\nplugins: anyio-4.12.0\ncollecting ... collected 6 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 16%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 33%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 50%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 66%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [ 83%]\ntest_solution.py::TestCases::test_invalid_input PASSED                   [100%]\n\n============================== 6 passed in 0.34s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.9533240795135498
+        },
+        {
+          "task_id": "bigcodebench_25",
+          "task_title": "Serializes a dictionary to a JSON string, compresses it using zlib, and then ...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import base64\nimport json\nimport zlib\n\ndef task_func(data_dict):\n    json_str = json.dumps(data_dict)\n    compressed_data = zlib.compress(json_str.encode('utf-8'))\n    encoded_data = base64.b64encode(compressed_data)\n    return encoded_data.decode('utf-8')",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp7uh5jaz5\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_1 PASSED                          [ 20%]\ntest_solution.py::TestCases::test_case_2 PASSED                          [ 40%]\ntest_solution.py::TestCases::test_case_3 PASSED                          [ 60%]\ntest_solution.py::TestCases::test_case_4 PASSED                          [ 80%]\ntest_solution.py::TestCases::test_case_5 PASSED                          [100%]\n\n============================== 5 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.6048543453216553
+        },
+        {
+          "task_id": "bigcodebench_27",
+          "task_title": "Takes a Python dictionary, adds a current timestamp to it, serializes the mod...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import json\nimport base64\nfrom datetime import datetime\n\ndef task_func(data: dict, DATE_FORMAT = \"%Y-%m-%d %H:%M:%S\") -> str:\n    data['timestamp'] = datetime.now().strftime(DATE_FORMAT)\n    json_str = json.dumps(data)\n    base64_bytes = base64.b64encode(json_str.encode('ascii'))\n    return base64_bytes.decode('ascii')",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmptanmwrhn\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_task_func_basic PASSED                 [ 20%]\ntest_solution.py::TestCases::test_task_func_empty PASSED                 [ 40%]\ntest_solution.py::TestCases::test_task_func_mixed PASSED                 [ 60%]\ntest_solution.py::TestCases::test_task_func_nested PASSED                [ 80%]\ntest_solution.py::TestCases::test_task_func_numeric PASSED               [100%]\n\n============================== 5 passed in 0.06s ===============================\n"
+          },
+          "agent_execution_time_seconds": 0.7267279624938965
+        },
+        {
+          "task_id": "bigcodebench_30",
+          "task_title": "Validate the structure and contents of a JSON file against predefined schema ...",
+          "score": 1.0,
+          "passed": true,
+          "generated_code": "import json\nimport os\nimport re\n\ndef task_func(\n    file_path,\n    attribute,\n    INPUT_JSON={\n        \"type\": \"object\",\n        \"properties\": {\n            \"name\": {\"type\": str},  \n            \"age\": {\"type\": int},   \n            \"email\": {\"type\": str}  \n        },\n        \"required\": [\"name\", \"age\", \"email\"]\n    },\n    EMAIL_REGEX=r\"^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$\"):\n    \n    if not os.path.exists(file_path):\n        raise ValueError(\"File does not exist\")\n    \n    with open(file_path, 'r') as file:\n        data = json.load(file)\n    \n    for required_field in INPUT_JSON[\"required\"]:\n        if required_field not in data:\n            raise ValueError(f\"Missing required field: {required_field}\")\n    \n    for field, field_type in INPUT_JSON[\"properties\"].items():\n        if field in data and not isinstance(data[field], field_type[\"type\"]):\n            raise ValueError(f\"Field '{field}' does not match type {field_type['type'].__name__}\")\n    \n    if \"email\" in data and not re.match(EMAIL_REGEX, data[\"email\"]):\n        raise ValueError(\"Invalid email format\")\n    \n    if attribute not in data:\n        raise ValueError(f\"Attribute '{attribute}' not found in JSON data\")\n    \n    return data[attribute]",
+          "details": {
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "test_pass_rate": 1.0,
+            "errors": [],
+            "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.13.11, pytest-9.0.2, pluggy-1.6.0 -- /home/agent/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /tmp/tmp4feykjs2\nplugins: anyio-4.12.0\ncollecting ... collected 5 items\n\ntest_solution.py::TestCases::test_case_invalid_email_format PASSED       [ 20%]\ntest_solution.py::TestCases::test_case_missing_attribute PASSED          [ 40%]\ntest_solution.py::TestCases::test_case_non_existent_file PASSED          [ 60%]\ntest_solution.py::TestCases::test_case_retrieve_age PASSED               [ 80%]\ntest_solution.py::TestCases::test_case_valid_json PASSED                 [100%]\n\n============================== 5 passed in 0.05s ===============================\n"
+          },
+          "agent_execution_time_seconds": 2.2561774253845215
+        }
+      ],
+      "total_execution_time_seconds": 33.28966188430786,
+      "average_execution_time_seconds": 1.664483094215393
+    }
+  ]
+}
